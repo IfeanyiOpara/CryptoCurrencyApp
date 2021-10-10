@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crypto_nav_graph"
+    app:startDestination="@id/homeCryptoFragment">
+
+    <fragment
+        android:id="@+id/homeCryptoFragment"
+        android:name="ifeanyi.opara.cryptocurrencyapp.ui.fragments.HomeCryptoFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_crypto" >
+        <action
+            android:id="@+id/action_homeCryptoFragment_to_detailsCryptoFragment"
+            app:destination="@id/detailsCryptoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedCryptoFragment"
+        android:name="ifeanyi.opara.cryptocurrencyapp.ui.fragments.SavedCryptoFragment"
+        android:label="Saved Crypto"
+        tools:layout="@layout/fragment_saved_crypto" />
+    <fragment
+        android:id="@+id/searchCryptoFragment"
+        android:name="ifeanyi.opara.cryptocurrencyapp.ui.fragments.SearchCryptoFragment"
+        android:label="Search Crypto"
+        tools:layout="@layout/fragment_search_crypto" />
+    <fragment
+        android:id="@+id/detailsCryptoFragment"
+        android:name="ifeanyi.opara.cryptocurrencyapp.ui.fragments.DetailsCryptoFragment"
+        android:label="Details Page"
+        tools:layout="@layout/fragment_details_crypto">
+        <argument
+            android:name="coin"
+            app:argType="ifeanyi.opara.cryptocurrencyapp.models.Coin" />
+    </fragment>
+</navigation>

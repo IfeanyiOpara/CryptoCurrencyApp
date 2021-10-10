@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeCryptoFragment"
+        android:title="@string/crypto"
+        android:icon="@drawable/coin"/>
+
+    <item
+        android:id="@+id/savedCryptoFragment"
+        android:title="@string/saved_crypto"
+        android:icon="@drawable/saved"/>
+
+    <item
+        android:id="@+id/searchCryptoFragment"
+        android:title="@string/search_crypto"
+        android:icon="@drawable/search"/>
+
+
+</menu>
