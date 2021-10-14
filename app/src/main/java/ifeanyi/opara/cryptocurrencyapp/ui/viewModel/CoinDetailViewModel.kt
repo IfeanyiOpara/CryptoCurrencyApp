@@ -1,5 +1,6 @@
 package ifeanyi.opara.cryptocurrencyapp.ui.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,6 +30,7 @@ class CoinDetailViewModel @Inject constructor(
 
    fun getCoinDetail(id : String){
        viewModelScope.launch(Dispatchers.IO) {
+           //Log.d("Main", repository.getCoinDetail(id).toString())
            val response = repository.getCoinDetail(id).toCoinDetail()
            coinDetail.postValue(response)
        }

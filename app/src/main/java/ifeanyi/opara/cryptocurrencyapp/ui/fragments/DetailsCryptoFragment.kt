@@ -2,6 +2,7 @@ package ifeanyi.opara.cryptocurrencyapp.ui.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,7 +51,17 @@ class DetailsCryptoFragment : Fragment(R.layout.fragment_details_crypto) {
         val id = coin.id
         viewModel.getCoinDetail(id)
 
+
+
         viewModel.coinDetailObserver().observe(viewLifecycleOwner, { coinDetail ->
+
+            Log.d("Tag", coinDetail.tags.toString())
+            Log.d("Name", coinDetail.name.toString())
+            Log.d("Team", coinDetail.team.toString())
+            Log.d("Description", coinDetail.description.toString())
+            Log.d("Rank", coinDetail.rank.toString())
+            Log.d("Symbol", coinDetail.symbol.toString())
+
             binding.apply {
                 coinDetailName.text = coinDetail.name
                 coinDetailRank.text = coinDetail.rank.toString()
@@ -65,8 +76,14 @@ class DetailsCryptoFragment : Fragment(R.layout.fragment_details_crypto) {
                 }
             }
 
-            tagsAdapter.differ.submitList(coinDetail.tags)
-            teamMemberAdapter.differ.submitList(coinDetail.team)
+            if(coinDetail.tags != null){
+                tagsAdapter.differ.submitList(coinDetail.tags)
+            }
+            if(coinDetail.team != null){
+                teamMemberAdapter.differ.submitList(coinDetail.team)
+            }
+
+
         })
 
     }

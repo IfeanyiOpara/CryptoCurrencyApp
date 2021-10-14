@@ -30,14 +30,20 @@ data class CoinDetailDto(
 
 fun CoinDetailDto.toCoinDetail(): CoinDetail{
     return CoinDetail(
-        coinId = id,
-        name = name,
-        description = description,
-        symbol = symbol,
-        rank = rank,
-        isActive = is_active,
-        tags = tags.map {it.name}, // this line means that we a re retrieving the list of tags in line 25 above but it returns Tag and we want string,
-        // so we only take the string name that is attached to the tag return type
-        team = team
-    )
+                coinId = id,
+                name = name,
+                description = description,
+                symbol = symbol,
+                rank = rank,
+                isActive = is_active,
+                tags = (if (tags == null)
+                    emptyList<String>()
+                else
+                    tags.map {
+                        it.name
+                    }
+                ) as List<String?>, // this line means that we a re retrieving the list of tags in line 25 above but it returns Tag and we want string,
+            // so we only take the string name that is attached to the tag return type
+                team = team
+        )
 }
